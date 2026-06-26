@@ -1,13 +1,13 @@
-﻿/* --- VARIABLES DE COLOR (Negro, Rosa y Morado) --- */
+﻿/* --- VARIABLES DE COLOR --- */
 :root {
-    --bg-negro: #0a0a0a;
+    --bg-negro: #080808;
     --texto-blanco: #f4f4f4;
-    --rosa-dlucy: #E0115F; 
-    --morado-dlucy: #8A2BE2; 
-    --gris-oscuro: #1a1a1a;
+    --rosa-mexicano: #E91E63; 
+    --morado-profundo: #6A1B9A; 
+    --gris-texto: #cccccc;
 }
 
-/* --- RESET BÁSICO --- */
+/* --- RESET --- */
 * {
     margin: 0;
     padding: 0;
@@ -19,10 +19,12 @@ body {
     background-color: var(--bg-negro);
     color: var(--texto-blanco);
     line-height: 1.6;
+    overflow-x: hidden;
 }
 
-h1, h2, h3 {
+h1, h2, h3, .serif {
     font-family: 'Playfair Display', serif;
+    font-weight: 400;
 }
 
 a {
@@ -35,205 +37,352 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 50px;
-    background-color: rgba(10, 10, 10, 0.95);
-    position: fixed;
-    width: 100%;
+    padding: 10px 40px;
+    background-color: #000;
+    border-bottom: 1px solid #222;
+    position: sticky;
     top: 0;
     z-index: 1000;
-    border-bottom: 1px solid var(--morado-dlucy);
 }
 
-.logo {
-    font-size: 28px;
+.logo-container {
+    background-color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+.logo-container h1 {
+    color: #000;
+    font-size: 24px;
+    font-style: italic;
     font-weight: 700;
-    background: linear-gradient(45deg, var(--rosa-dlucy), var(--morado-dlucy));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
     letter-spacing: 2px;
 }
 
 .nav-links {
     list-style: none;
     display: flex;
-    gap: 30px;
+    gap: 25px;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
 }
 
 .nav-links li a:hover {
-    color: var(--rosa-dlucy);
-    transition: color 0.3s ease;
+    color: var(--rosa-mexicano);
+    transition: 0.3s;
 }
 
-/* --- HERO SECTION (INICIO) --- */
-.hero {
-    height: 100vh;
+.btn-outline {
+    border: 1px solid var(--rosa-mexicano);
+    padding: 8px 20px;
+    color: var(--rosa-mexicano);
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    border-radius: 3px;
+    transition: all 0.3s;
+}
+
+.btn-outline:hover {
+    background-color: var(--rosa-mexicano);
+    color: #fff;
+}
+
+/* --- CONTENEDOR PRINCIPAL (LAYOUT 2 COLUMNAS) --- */
+.main-layout {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    background: linear-gradient(to bottom, rgba(10,10,10,0.8), var(--bg-negro)), url('https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=2070&auto=format&fit=crop') no-repeat center center/cover;
-    padding: 0 20px;
+    flex-wrap: wrap;
+    width: 100%;
 }
 
-.hero h1 {
-    font-size: 4rem;
-    margin-bottom: 10px;
+.col-left, .col-right {
+    width: 50%;
+    padding: 50px;
 }
 
-.hero p {
-    font-size: 1.2rem;
+.col-right {
+    border-left: 1px solid #222;
+}
+
+/* --- SECCIÓN HISTORIA (IZQUIERDA) --- */
+.subtitle {
+    color: var(--morado-profundo);
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    font-weight: 600;
+}
+
+.title-pink {
+    color: var(--rosa-mexicano);
+    font-size: 3.5rem;
+    line-height: 1.1;
+    margin: 10px 0 20px;
+    font-style: italic;
+}
+
+.text-box {
+    color: var(--gris-texto);
+    font-size: 0.95rem;
     margin-bottom: 30px;
+}
+
+.text-box span {
+    color: var(--rosa-mexicano);
+    font-style: italic;
+}
+
+.features {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 30px;
+    font-size: 0.75rem;
+    text-transform: uppercase;
     letter-spacing: 1px;
 }
 
-.btn {
-    padding: 12px 30px;
-    background: linear-gradient(45deg, var(--rosa-dlucy), var(--morado-dlucy));
+.feature-item h4 {
+    color: #fff;
+    margin-bottom: 5px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.feature-item p {
+    color: var(--gris-texto);
+    font-size: 0.7rem;
+}
+
+.btn-solid {
+    background-color: var(--rosa-mexicano);
+    color: #fff;
     border: none;
-    color: white;
-    font-size: 1rem;
-    font-weight: bold;
-    border-radius: 25px;
+    padding: 12px 30px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
     cursor: pointer;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 3px;
+    margin-bottom: 60px;
+    transition: background 0.3s;
 }
 
-.btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(138, 43, 226, 0.4);
+.btn-solid:hover {
+    background-color: var(--morado-profundo);
 }
 
-/* --- SECCIÓN NOSOTROS --- */
-.section-pad {
-    padding: 80px 10vw;
-}
-
-.nosotros-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 40px;
-    align-items: center;
-}
-
-.nosotros-text {
-    flex: 1;
-    min-width: 300px;
-}
-
-.nosotros-text h2 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-    color: var(--morado-dlucy);
-}
-
-.nosotros-text .owner {
-    margin-top: 20px;
-    font-style: italic;
-    color: var(--rosa-dlucy);
-}
-
-.nosotros-img {
-    flex: 1;
-    min-width: 300px;
-    height: 400px;
-    background: url('https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=2070&auto=format&fit=crop') no-repeat center center/cover;
-    border-radius: 10px;
-    box-shadow: -15px 15px 0px var(--morado-dlucy);
-}
-
-/* --- COLECCIONES --- */
-.colecciones {
-    background-color: var(--gris-oscuro);
+/* --- SECCIÓN POLAROIDS (IZQUIERDA ABAJO) --- */
+.outfits-section {
     text-align: center;
 }
 
-.colecciones h2 {
+.outfits-section h2 {
     font-size: 2.5rem;
+    margin-bottom: 30px;
+}
+
+.outfits-section h2 span {
+    color: var(--rosa-mexicano);
+    font-style: italic;
+}
+
+.polaroid-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.polaroid {
+    background-color: #fff;
+    padding: 10px 10px 20px 10px;
+    width: 32%;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+}
+
+.polaroid img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    margin-bottom: 15px;
+}
+
+.polaroid p {
+    color: #000;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* --- SECCIÓN COLECCIONES (DERECHA ARRIBA) --- */
+.col-right-header {
+    text-align: center;
     margin-bottom: 40px;
 }
 
-.grid-colecciones {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
+.col-right-header h2 {
+    color: var(--morado-profundo);
+    font-size: 2rem;
+    font-style: italic;
 }
 
-.card {
-    background-color: var(--bg-negro);
-    border: 1px solid #333;
+.colecciones-grid {
+    display: flex;
+    gap: 15px;
+    height: 400px;
+    margin-bottom: 40px;
+}
+
+.coleccion-card {
+    flex: 1;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    border-radius: 5px;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
     padding: 20px;
-    border-radius: 10px;
-    transition: border-color 0.3s ease;
 }
 
-.card:hover {
-    border-color: var(--rosa-dlucy);
+.coleccion-card::before {
+    content: '';
+    position: absolute;
+    top:0; left:0; right:0; bottom:0;
+    background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
 }
 
-.card h3 {
-    margin: 15px 0;
-    color: var(--rosa-dlucy);
+.coleccion-card div {
+    position: relative;
+    z-index: 2;
 }
 
-/* --- CONTACTO --- */
-.contacto {
-    text-align: center;
+.coleccion-card h4 {
+    color: var(--rosa-mexicano);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 5px;
 }
 
-.contacto h2 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-    color: var(--morado-dlucy);
+.coleccion-card h3 {
+    font-size: 1.5rem;
+}
+
+/* --- SEPARADOR PAPEL PICADO --- */
+.papel-picado-divider {
+    width: 100%;
+    height: 40px;
+    background-image: radial-gradient(circle at 10px 0, transparent 10px, var(--morado-profundo) 11px);
+    background-size: 20px 20px;
+    background-repeat: repeat-x;
+    margin: 40px 0;
+    position: relative;
+    border-bottom: 5px solid var(--rosa-mexicano);
+}
+
+/* --- CONTACTO & MAPA (DERECHA ABAJO) --- */
+.contacto-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .contacto-info {
+    width: 45%;
+}
+
+.contacto-info h3 {
+    color: var(--rosa-mexicano);
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    font-style: italic;
+}
+
+.info-item {
+    margin-bottom: 15px;
+}
+
+.info-item h5 {
+    color: #fff;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 3px;
+}
+
+.info-item p {
+    color: var(--gris-texto);
+    font-size: 0.85rem;
+}
+
+.mapa-container {
+    width: 50%;
+    height: 200px;
+    background: url('https://images.unsplash.com/photo-1524661135-423995f22d0b?q=80&w=2074&auto=format&fit=crop') center/cover;
+    border: 2px solid var(--rosa-mexicano);
+    border-radius: 5px;
+    position: relative;
+}
+
+.talavera-decor {
+    position: absolute;
+    bottom: -15px;
+    left: -15px;
+    font-size: 40px;
+    background: #fff;
+    border-radius: 50%;
+    padding: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.8);
+}
+
+/* --- BOTÓN FLOTANTE WHATSAPP --- */
+.whatsapp-float {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: #25D366;
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
     display: flex;
     justify-content: center;
-    gap: 50px;
-    flex-wrap: wrap;
-    margin-top: 40px;
+    align-items: center;
+    font-size: 30px;
+    box-shadow: 0 4px 10px rgba(37, 211, 102, 0.4);
+    z-index: 1000;
 }
 
-.info-box {
-    background-color: var(--gris-oscuro);
-    padding: 30px;
-    border-radius: 10px;
-    min-width: 250px;
-    border-bottom: 3px solid var(--rosa-dlucy);
-}
-
-.info-box h4 {
-    font-size: 1.2rem;
-    margin-bottom: 15px;
-    color: var(--morado-dlucy);
-}
-
-.info-box p {
-    margin-bottom: 10px;
-    font-size: 0.95rem;
-}
-
-/* --- FOOTER --- */
-footer {
-    text-align: center;
-    padding: 20px;
-    background-color: #050505;
-    font-size: 0.8rem;
-    border-top: 1px solid #222;
-}
-
-/* --- RESPONSIVE (MÓVILES) --- */
-@media (max-width: 768px) {
-    nav {
-        flex-direction: column;
-        padding: 15px;
+/* --- RESPONSIVE --- */
+@media (max-width: 900px) {
+    .col-left, .col-right {
+        width: 100%;
+        padding: 30px 20px;
+        border-left: none;
     }
     .nav-links {
-        margin-top: 15px;
-        gap: 15px;
+        display: none;
     }
-    .hero h1 {
-        font-size: 2.5rem;
+    .polaroid-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    .polaroid {
+        width: 80%;
+    }
+    .colecciones-grid {
+        flex-direction: column;
+        height: auto;
+    }
+    .coleccion-card {
+        height: 250px;
+    }
+    .contacto-section {
+        flex-direction: column;
+    }
+    .contacto-info, .mapa-container {
+        width: 100%;
+        margin-bottom: 20px;
     }
 }
