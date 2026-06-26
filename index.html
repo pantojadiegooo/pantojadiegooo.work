@@ -2,81 +2,323 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Mi Página Web</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D´LUCY | Boutique Exclusiva</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        /* --- VARIABLES DE COLOR --- */
+        :root {
+            --bg-negro: #0a0a0a;
+            --texto-blanco: #f4f4f4;
+            --rosa-dlucy: #E0115F; /* Rosa fuerte/Rubí */
+            --morado-dlucy: #8A2BE2; /* Morado vibrante */
+            --gris-oscuro: #1a1a1a;
+        }
+
+        /* --- RESET BÁSICO --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--bg-negro);
+            color: var(--texto-blanco);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--texto-blanco);
+        }
+
+        /* --- NAVEGACIÓN --- */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            background-color: rgba(10, 10, 10, 0.95);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid var(--morado-dlucy);
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            background: linear-gradient(45deg, var(--rosa-dlucy), var(--morado-dlucy));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 2px;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links li a:hover {
+            color: var(--rosa-dlucy);
+            transition: color 0.3s ease;
+        }
+
+        /* --- HERO SECTION (INICIO) --- */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(to bottom, rgba(10,10,10,0.8), var(--bg-negro)), url('https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=2070&auto=format&fit=crop') no-repeat center center/cover;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            letter-spacing: 1px;
+        }
+
+        .btn {
+            padding: 12px 30px;
+            background: linear-gradient(45deg, var(--rosa-dlucy), var(--morado-dlucy));
+            border: none;
+            color: white;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(138, 43, 226, 0.4);
+        }
+
+        /* --- SECCIÓN NOSOTROS --- */
+        .section-pad {
+            padding: 80px 10vw;
+        }
+
+        .nosotros-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .nosotros-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .nosotros-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--morado-dlucy);
+        }
+
+        .nosotros-text .owner {
+            margin-top: 20px;
+            font-style: italic;
+            color: var(--rosa-dlucy);
+        }
+
+        .nosotros-img {
+            flex: 1;
+            min-width: 300px;
+            height: 400px;
+            background: url('https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=2070&auto=format&fit=crop') no-repeat center center/cover;
+            border-radius: 10px;
+            box-shadow: -15px 15px 0px var(--morado-dlucy);
+        }
+
+        /* --- COLECCIONES --- */
+        .colecciones {
+            background-color: var(--gris-oscuro);
+            text-align: center;
+        }
+
+        .colecciones h2 {
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+        }
+
+        .grid-colecciones {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background-color: var(--bg-negro);
+            border: 1px solid #333;
+            padding: 20px;
+            border-radius: 10px;
+            transition: border-color 0.3s ease;
+        }
+
+        .card:hover {
+            border-color: var(--rosa-dlucy);
+        }
+
+        .card h3 {
+            margin: 15px 0;
+            color: var(--rosa-dlucy);
+        }
+
+        /* --- CONTACTO --- */
+        .contacto {
+            text-align: center;
+        }
+
+        .contacto h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--morado-dlucy);
+        }
+
+        .contacto-info {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+
+        .info-box {
+            background-color: var(--gris-oscuro);
+            padding: 30px;
+            border-radius: 10px;
+            min-width: 250px;
+            border-bottom: 3px solid var(--rosa-dlucy);
+        }
+
+        .info-box h4 {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: var(--morado-dlucy);
+        }
+
+        .info-box p {
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #050505;
+            font-size: 0.8rem;
+            border-top: 1px solid #222;
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                padding: 15px;
+            }
+            .nav-links {
+                margin-top: 15px;
+                gap: 15px;
+            }
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
 </head>
 <body>
 
-    <h1>¡Hola! Soy Diego Pantoja</h1>
-    <p>Soy una persona interesada en el desarrollo web. Esta es mi primera página usando solo HTML.</p>
+    <nav>
+        <div class="logo">D´LUCY</div>
+        <ul class="nav-links">
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#nosotros">Nosotros</a></li>
+            <li><a href="#colecciones">Colecciones</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+        </ul>
+    </nav>
 
-    <hr>
+    <header id="inicio" class="hero">
+        <h1>Tu Estilo, Tu Poder</h1>
+        <p>Moda disruptiva, calidad y actitud en cada pieza.</p>
+        <a href="#colecciones"><button class="btn">Ver Colecciones</button></a>
+    </header>
 
-    <h2>Mis Habilidades</h2>
-    <ul>
-        <li>HTML básico</li>
-        <li>CSS (en progreso)</li>
-        <li>JavaScript (próximamente)</li>
-    </ul>
+    <section id="nosotros" class="section-pad">
+        <div class="nosotros-container">
+            <div class="nosotros-img"></div>
+            <div class="nosotros-text">
+                <h2>Más que una Boutique</h2>
+                <p>En <strong>D´LUCY</strong> nuestra misión es clara: ofrecerte ropa y accesorios de la mejor calidad. Somos una marca que nació con actitud, con pasión por la moda y con el deseo de que cada mujer se sienta poderosa con lo que usa.</p>
+                <p class="owner">— Fundada por Lucia Pantoja Lemus</p>
+            </div>
+        </div>
+    </section>
 
-    <hr>
+    <section id="colecciones" class="section-pad colecciones">
+        <h2>Descubre tu Estilo</h2>
+        <div class="grid-colecciones">
+            <div class="card">
+                <h3>Vestidos</h3>
+                <p>Desde elegantes vestidos de noche hasta frescos vestidos casuales diseñados para hacerte brillar.</p>
+            </div>
+            <div class="card">
+                <h3>Casual & Chic</h3>
+                <p>El look perfecto para el día a día. Cómodo, trendy y con ese toque especial que te distingue.</p>
+            </div>
+            <div class="card">
+                <h3>Accesorios</h3>
+                <p>Los detalles que transforman un outfit. Bolsas, joyería, y más para completar tu look de impacto.</p>
+            </div>
+        </div>
+    </section>
 
-    <h2>Proyectos Recientes</h2>
-    <ol>
-        <li>Mi primera página web</li>
-        <li>Tarjeta de presentación</li>
-        <li>Clon de una página famosa</li>
-    </ol>
+    <section id="contacto" class="section-pad contacto">
+        <h2>Hablemos de Moda</h2>
+        <p>Estamos aquí para ayudarte a encontrar tu look perfecto.</p>
+        
+        <div class="contacto-info">
+            <div class="info-box">
+                <h4>📍 Visítanos</h4>
+                <p>Av. Emiliano Zapata, n.85B</p>
+                <p>Colonia Portales, Benito Juárez</p>
+                <p>C.P. 03300, CDMX</p>
+            </div>
+            
+            <div class="info-box">
+                <h4>💬 Contáctanos</h4>
+                <p><strong>Tel/WhatsApp:</strong> 55 7262 7742</p>
+                <p><strong>Negocio:</strong> dyylucy@gmail.com</p>
+                <p><strong>Personal:</strong> blueacilu_cy@msn.com</p>
+            </div>
+        </div>
+        
+        <br><br>
+        <a href="https://wa.me/525572627742" target="_blank">
+            <button class="btn">Chatear por WhatsApp</button>
+        </a>
+    </section>
 
-    <hr>
-
-    <h2>Una Imagen Genial</h2>
-    <img src="https://picsum.photos/300" alt="Imagen aleatoria">
-
-    <hr>
-
-    <h2>Formulario de Contacto</h2>
-    <p>Si quieres comunicarte conmigo, llena este formulario:</p>
-
-    <form>
-        <label for="nombre">Nombre:</label><br>
-        <input type="text" id="nombre" name="nombre"><br><br>
-
-        <label for="email">Correo electrónico:</label><br>
-        <input type="email" id="email" name="email"><br><br>
-
-        <input type="submit" value="Enviar">
-    </form>
-
-    <hr>
-
-    <h2>Información Personal</h2>
-    <table border="1">
-        <tr>
-            <th>Dato</th>
-            <th>Valor</th>
-        </tr>
-        <tr>
-            <td>Nombre</td>
-            <td>Tu Nombre Aquí</td>
-        </tr>
-        <tr>
-            <td>Correo</td>
-            <td>pantojadiegooo.work@gmail.com</td>
-        </tr>
-        <tr>
-            <td>GitHub</td>
-            <td><a href="https://www.instagram.com/diecastillooo_/" target="_blank">Visitar perfil</a></td>
-        </tr>
-        <tr>
-            <td>Ciudad</td>
-            <td>Ciudad de Mexico</td>
-        </tr>
-    </table>
-
-    <hr>
-
-    <p>&copy; 2025 - Mi Página Web Personal</p>
-
-</body>
-</html>
-
+    <footer>
+        <p
